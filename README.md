@@ -34,7 +34,7 @@ the **defineMigration** function can do actions as below:
 DBMigration.defineMigration(1, {
 	up: (migration) => {
 		console.log(`1 up`);
-        migration.executeSql('CREATE TABLE IF NOT EXISTS person (id INTEGER, name TEXT)');
+    migration.executeSql('CREATE TABLE IF NOT EXISTS person (id INTEGER, name TEXT)');
 	},
 	down: (migration) => {
 		console.log(`1 down`);
@@ -43,7 +43,7 @@ DBMigration.defineMigration(1, {
 DBMigration.defineMigration(2, {
 	up: (migration) => {
 		console.log(`2 up`);
-        migration.addIndex('person', 'name');
+    migration.addIndex('person', 'name');
 	},
 	down: (migration) => {
 		console.log(`2 down`);
@@ -52,7 +52,7 @@ DBMigration.defineMigration(2, {
 DBMigration.defineMigration(3, {
 	up: (migration) => {
 		console.log(`3 up`);
-        migration.removeIndex('person', 'name');
+    migration.removeIndex('person', 'name');
 	},
 	down: (migration) => {
 		console.log(`3 down`);
@@ -61,7 +61,7 @@ DBMigration.defineMigration(3, {
 DBMigration.defineMigration(4, {
 	up: (migration) => {
 		console.log(`4 up`);
-        migration.addColumn('person', 'age', 'integer');
+    migration.addColumn('person', 'age', 'integer');
 	},
 	down: (migration) => {
 		console.log(`4 down`);
@@ -70,7 +70,7 @@ DBMigration.defineMigration(4, {
 DBMigration.defineMigration(5, {
 	up: (migration) => {
 		console.log(`5 up`);
-        migration.removeColumn('person', 'name', 'text'); 
+    migration.removeColumn('person', 'name', 'text'); 
 	},
 	down: (migration) => {
 		console.log(`5 down`);
@@ -79,9 +79,9 @@ DBMigration.defineMigration(5, {
 DBMigration.defineMigration(6, {
 	up: (migration) => {
 		console.log(`6 up`);
-        migration.db.all('SELECT * FROM person').then(result => {
-        	console.log(JSON.stringify(result));
-        });
+    migration.db.all('SELECT * FROM person').then(result => {
+      console.log(JSON.stringify(result));
+    });
 	},
 	down: (migration) => {
 		console.log(`6 down`);
